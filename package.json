@@ -1,0 +1,18 @@
+{
+  "name": "room-booking-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "lsof -ti:4000 | xargs kill -9; concurrently -n web,server -c cyan,yellow \"npm run dev:web\" \"npm run dev:server\"",
+    "dev:web": "npm --prefix room-booking-system-web run dev",
+    "dev:server": "npm --prefix room-booking-system-server run start:dev",
+    "build:web": "npm --prefix room-booking-system-web run build",
+    "build:server": "npm --prefix room-booking-system-server run build",
+    "start:web": "npm --prefix room-booking-system-web run preview",
+    "start:server": "npm --prefix room-booking-system-server run start:prod",
+    "kill:port": "lsof -ti:4000 | xargs kill -9"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
